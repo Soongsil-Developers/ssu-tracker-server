@@ -12,7 +12,7 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
   app.enableCors({
-    origin: process.env[Env.NODE_ENV] === 'production' ? '' : true,
+    origin: true,
   });
   await app.listen(3000, '0.0.0.0');
 }

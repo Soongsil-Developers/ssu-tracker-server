@@ -1,0 +1,24 @@
+previewsEnabled: true
+services:
+  - type: web
+    name: ssu-tracker-server
+    env: node
+    region: singapore
+    plan: starter
+    previewPlan: starter
+    buildCommand: yarn && yarn build
+    startCommand: yarn start:prod
+    envVars:
+      - key: DB_URL
+        fromDatabase:
+          name: ssu-tracker-db
+          property: connectionString
+      - key: IS_PREVIEW
+        value: false
+        previewValue: true
+databases:
+  - name: ssu-tracker-db
+    region: singapore
+    plan: starter
+    previewPlan: starter
+    databaseName: ssu_tracker
