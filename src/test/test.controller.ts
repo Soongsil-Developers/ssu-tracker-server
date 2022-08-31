@@ -8,7 +8,7 @@ export class TestController {
 
   @Get('test/test')
   async test(): Promise<TestModel | null> {
-    return this.testModelService.test({ id: 2 });
+    return this.testModelService.test({ id: 5 });
   }
 
   @Post('test/make')
